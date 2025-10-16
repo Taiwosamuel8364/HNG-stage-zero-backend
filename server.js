@@ -2,9 +2,10 @@ const { timeStamp } = require("console");
 const express = require("express");
 const cat_fact = require("./fact");
 const rateLimit = require("express-rate-limit");
+require("dotenv").config();
 
 const app = express();
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 
 app.use(express.json());
 
@@ -17,8 +18,7 @@ const limiter = rateLimit({
 });
 
 app.use(limiter);
-// Apply rate limiting to all routes
-app.use(limiter);
+
 const myDetails = {
   email: "taiwosamuel8364@gmail.com",
   name: "Taiwo Samuel Oluwatayo",
@@ -27,7 +27,6 @@ const myDetails = {
 
 app.get("/me", async (req, res) => {
   try {
-    // Response
     const catFact = await cat_fact(64);
     res.status(200).json({
       status: "success",
@@ -37,7 +36,7 @@ app.get("/me", async (req, res) => {
     });
   } catch (err) {
     res.status(500).json({
-      meaasge: err.message,
+      message: err.message,
     });
   }
 });
