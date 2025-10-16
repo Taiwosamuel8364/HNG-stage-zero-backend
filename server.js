@@ -33,7 +33,7 @@ app.get("/me", async (req, res) => {
     res.status(200).json({
       status: "success",
       user: myDetails,
-      timeStamp: new Date().toISOString(),
+      timestamp: new Date().toISOString(),
       fact: catFact.fact,
     });
   } catch (err) {
