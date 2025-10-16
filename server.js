@@ -3,10 +3,12 @@ const express = require("express");
 const cat_fact = require("./fact");
 const rateLimit = require("express-rate-limit");
 require("dotenv").config();
+const cors = require(cors);
 
 const app = express();
 const PORT = process.env.PORT || 4000;
 
+app.use(cors());
 app.use(express.json());
 
 const limiter = rateLimit({
