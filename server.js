@@ -24,7 +24,7 @@ app.use(limiter);
 const myDetails = {
   email: "taiwosamuel8364@gmail.com",
   name: "Taiwo Samuel Oluwatayo",
-  stack: "Node.js, MonogDB",
+  stack: "Node.js, MonogDB, Expressjs",
 };
 
 app.get("/me", async (req, res) => {
